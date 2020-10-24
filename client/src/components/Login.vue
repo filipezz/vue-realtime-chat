@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="getUsername" class="username-container">
-    <div class="input">
+    <div :class="{ 'has-text': !!user }" class="input">
       <label class="placeholder">Seu nome</label>
-      <input v-model="user" placeholder="" class="username" type="text" />
+      <input v-model="user" type="text" />
     </div>
     <button type="submit">Entrar</button>
   </form>
@@ -61,7 +61,25 @@ export default {
   font-size: 12px;
   padding: 0 3px;
   color: #1a73e8;
-  background: #eee;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0,
+    rgba(255, 255, 255, 1) 43%,
+    rgba(238, 238, 238, 1) 43%
+  );
+}
+
+.has-text .placeholder {
+  transform: translateY(-210%);
+  font-size: 12px;
+  padding: 0 3px;
+  color: #1a73e8;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0,
+    rgba(255, 255, 255, 1) 43%,
+    rgba(238, 238, 238, 1) 43%
+  );
 }
 
 input:focus {

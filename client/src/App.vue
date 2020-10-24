@@ -6,20 +6,11 @@
 
 <script>
 // import io from "socket.io-client";
-import Login from "./components/Login";
-import Chat from "./components/Chat";
 
 // const socket = io("http://localhost:3000/");
 
 export default {
   name: "app",
-  data() {
-    return {};
-  },
-  components: {
-    Login,
-    Chat,
-  },
 };
 </script>
 

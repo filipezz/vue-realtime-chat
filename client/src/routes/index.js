@@ -21,4 +21,15 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  if(to.name === 'Login'){
+    store.state.user = ''
+    
+  }
+  if(to.name === 'Chat' && !store.state.user){
+    next('/')
+  } 
+
+  next()
+})
 export default router;

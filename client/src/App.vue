@@ -1,6 +1,7 @@
 <template>
   <main class="main-container">
     <router-view> </router-view>
+
   </main>
 </template>
 
@@ -30,13 +31,12 @@ body {
 
 ::-webkit-scrollbar {
   width: 7px;
-  background: #2c2c2cda;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: #2c2c2c;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  background: #eee;
 }
 
 body {
@@ -95,8 +95,14 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   opacity: 0.8;
+}
+
+button:disabled {
+  filter: grayscale();
+  opacity: 0.7;
+  
 }
 
 input {
@@ -110,42 +116,4 @@ input {
   font-size: 16px;
 }
 
-
-.message {
-  flex: 1;
-}
-
-p {
-  word-break: break-all;
-}
-
-.chat {
-  display: flex;
-  height: calc(100% - 45px);
-  width: 100%;
-  background: #fff;
-  padding: 20px;
-}
-
-.income-msg {
-  margin-bottom: 10px;
-  border-radius: 9px;
-  padding: 5px 16px;
-  width: fit-content;
-}
-
-.income-username {
-  margin-bottom: 7px;
-}
-
-.myself {
-  background: #dcf8c6;
-  margin-left: auto;
-  padding: 16px;
-}
-
-.income-msg:not(.myself) {
-  margin-right: auto;
-  background: #eee;
-}
 </style>

@@ -4,14 +4,11 @@
       <label class="placeholder">Seu nome</label>
       <input v-model="user" type="text" />
     </div>
-    <button type="submit">Entrar</button>
+    <button :disabled="!user" type="submit">Entrar</button>
   </form>
 </template>
 
 <script>
-import io from "socket.io-client";
-const socket = io("http://localhost:3000/");
-
 export default {
   name: "Login",
   data() {
@@ -23,8 +20,9 @@ export default {
     getUsername() {
       this.$store.commit("setUser", this.user);
       this.$router.push("/chat");
-
-      socket.emit("username", this.user);
+      
+      this.$store.commit("connection", "http://localhost:3000");
+      this.$store.getters.socket.emit("username", this.user);
     },
   },
 };

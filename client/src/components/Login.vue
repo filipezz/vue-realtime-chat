@@ -20,7 +20,7 @@ export default {
     getUsername() {
       this.$store.commit("setUser", this.user);
       this.$router.push("/chat");
-      
+
       this.$store.commit("connection", "http://localhost:3000");
       this.$store.getters.socket.emit("username", this.user);
     },
